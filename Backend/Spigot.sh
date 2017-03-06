@@ -20,7 +20,7 @@ do
             cd ~
             mkdir Jars
             cd Jars
-            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastBuild/
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
             java -jar BuildTools.jar --rev 1.8.8
             mv spigot-1.8.8.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
@@ -31,7 +31,7 @@ do
             cd ~
             mkdir Jars
             cd Jars
-            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastBuild/
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
             java -jar BuildTools.jar --rev latest
             mv spigot-1.11.2.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
@@ -42,8 +42,7 @@ do
             cd ~
             mkdir Jars
             cd Jars
-            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastBuild/
-            chmod 770 ./Waterfall.sh
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
             java -jar BuildTools.jar --rev 1.9.4
             mv spigot-1.9.4.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
@@ -54,7 +53,7 @@ do
             cd ~
             mkdir Jars
             cd Jars
-            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastBuild/
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
             java -jar BuildTools.jar --rev 1.10
             mv spigot-1.10.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh

@@ -7,6 +7,11 @@
 #!/bin/sh
 echo "Server Setup 3.0 by Buzzzy"
 sleep 1
+cd /etc/apt/sources.list.d/
+cat > java-8-debian.list << END_TEXT
+deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
+deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
+END_TEXT
 PS3='Choose your linux distro: '
 options=("Debian" "Ubuntu" "Centos" )
 select opt in "${options[@]}"
@@ -19,8 +24,6 @@ do
             apt-get install mysql-server
             apt-get install php5 libapache2-mod-php5
             /etc/init.d/apache2 restart
-            cd /etc/apt/sources.list.d/
-            wget https://buzzzy.co/Hub/serversetup/Debian/java-8-debian.list
             apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
             apt-get update
             apt-get install oracle-java8-installer

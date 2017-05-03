@@ -1,20 +1,17 @@
 ##################################################################################
 ##                    SERVER SETUP SCRIPT BY BUZZY                              ##
-##                 Report config error https://buzzzy.co                         ##
+##                 Report config error https://buzzzy.co                        ##
 ##                 Report Spigot/Bungee errors https://goo.gl/w9aoZT            ##
 ##################################################################################
 ##     All credit for the items installed/downloaded go to original authors     ##
 ##################################################################################
 #!/bin/sh
-echo "Server Setup 3.0 by Buzzzy"
+echo "Server Setup 4.1 by Buzzzy"
 sleep 2
 echo "You will need to install the basics before installing spigot,bungee,waterfall, etc"
 sleep 1
-echo "If you would like to have the script connect the servers and setup a vote proxy then buy the preimum version!"
-echo "It also supports the author!"
+echo "If you would like to support me check out my paypal link on the plugin page."
 sleep 2
-echo "If you have any questions about setting up the servers yourself check out my website where I have posted guides!"
-sleep .2
 echo "If you are having a problem updating the jars, run the Jars option then try again!"
 PS3='What would you like to install? '
 options=("Spigot" "Bungee" "Waterfall" "Lilypad" "Vinilla" "Paperspigot" "Basics" "Forge" "Cauldron" "Sponge" "Jars" )

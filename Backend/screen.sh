@@ -26,7 +26,9 @@ do
             screen -S myserver -X stuff "./start.sh
             "
             echo "Your server is now running, to access console do screen -x myserver , the files are located ~/MyServer/, if you ever need to restart it, go into server folder and run script restart.sh!"
-            sleep 1
+            echo "If you liked this resource please leave a review on spigot!"
+            echo "To exit this script please press ctrl and c together until you're out of the script"
+            sleep .6
             ;;
          "Ubuntu")
             cd ~
@@ -39,7 +41,9 @@ do
             chmod 770 ./start.sh
             screen -d -m -t myserver sh start.sh
             echo "Your server is now running, to access console do screen -x myserver , the files are located ~/MyServer/, if you ever need to restart it, go into server folder and run script restart.sh!"
-            sleep 1
+            echo "If you liked this resource please leave a review on spigot!"
+            echo "To exit this script please press ctrl and c together until you're out of the script"
+            sleep .6
             ;;
          "Centos")
             cd ~
@@ -54,7 +58,9 @@ do
             screen -S myserver -X stuff "./start.sh
             "
             echo "Your server is now running, to access console do screen -x myserver , the files are located ~/MyServer/, if you ever need to restart it, go into server folder and run script restart.sh!"
-            sleep 1
+            echo "If you liked this resource please leave a review on spigot!"
+            echo "To exit this script please press ctrl and c together until you're out of the script"
+            sleep .6
             ;;
         *) echo invalid option;;
     esac

@@ -6,7 +6,7 @@
 ##     All credit for the items installed/downloaded go to original authors     ##
 ##################################################################################
 #!/bin/sh
-echo "Server Setup 4.1 by Buzzzy"
+echo "Server Setup 5.0 by Buzzzy"
 sleep 2
 echo "You will need to install the basics before installing spigot,bungee,waterfall, etc"
 sleep 1
@@ -75,6 +75,13 @@ do
             cd ~
             rm -rf Jars
             echo "Should be fixed!"
+            ;;
+        "Web")
+            echo "THIS IS IN BETA, PLEASE REPORT ANY ISSUES ON THE GITHUB!"
+            sleep 1
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/web,sh
+            chmod 770 ./web.sh
+            ./web.sh
             ;;
         *) echo invalid option;;
     esac

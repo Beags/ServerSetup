@@ -6,12 +6,45 @@
 ##     All credit for the items installed/downloaded go to original authors     ##
 ##################################################################################
 #!/bin/sh
-echo "Server Setup 3.0 by Buzzzy"
+echo "
+   ▄████████    ▄████████    ▄████████  ▄█    █▄     ▄████████    ▄████████         ▄████████    ▄████████ ███    █▄      ███        ▄███████▄ 
+  ███    ███   ███    ███   ███    ███ ███    ███   ███    ███   ███    ███        ███    ███   ███    ███ ███    ███ ▀█████████▄   ███    ███ 
+  ███    █▀    ███    █▀    ███    ███ ███    ███   ███    █▀    ███    ███        ███    █▀    ███    █▀  ███    ███    ▀███▀▀██   ███    ███ 
+  ███         ▄███▄▄▄      ▄███▄▄▄▄██▀ ███    ███  ▄███▄▄▄      ▄███▄▄▄▄██▀        ███         ▄███▄▄▄     ███    ███     ███   ▀   ███    ███ 
+▀███████████ ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ███    ███ ▀▀███▀▀▀     ▀▀███▀▀▀▀▀        ▀███████████ ▀▀███▀▀▀     ███    ███     ███     ▀█████████▀  
+         ███   ███    █▄  ▀███████████ ███    ███   ███    █▄  ▀███████████               ███   ███    █▄  ███    ███     ███       ███        
+   ▄█    ███   ███    ███   ███    ███ ███    ███   ███    ███   ███    ███         ▄█    ███   ███    ███ ███    ███     ███       ███        
+ ▄████████▀    ██████████   ███    ███  ▀██████▀    ██████████   ███    ███       ▄████████▀    ██████████ ████████▀     ▄████▀    ▄████▀      
+                            ███    ███                           ███    ███                                                                    
+
+Version: 5.2 Remote
+"
 sleep 2
-echo "Remote Server Setup Linux / Mac"
+echo "
+Written by Buzzy
+"
+sleep .3
+echo "
+Report all bugs here: https://github.com/Beags/ServerSetup/issues
+"
+echo "
+You will need to run the option Basics before anything else for it to work!
+"
+sleep 1
+echo "
+If you would like to support me check out my paypal link on the plugin page.
+"
+sleep 2
+echo "
+Remote Server Setup Linux / Mac
+"
 sleep .1
-echo "Please follow all onscreen instructions as this connects to your server"
-echo "For easier access the script will create an ssh key for easier access"
+echo "
+Please follow all on screen instructions as this connects to your server
+"
+echo "
+For easier access the script will create an ssh key for easier access
+"
 sleep 1
 cd ~/.ssh/
 echo "What is your servers ip?"

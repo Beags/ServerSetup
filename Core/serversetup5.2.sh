@@ -1,6 +1,6 @@
 ##################################################################################
 ##                    SERVER SETUP SCRIPT BY BUZZY                              ##
-##                 Report errors: https://github.com/Beags/ServerSetup/issues   ##
+##                 Report config error https://buzzzy.co                        ##
 ##                 Report Spigot/Bungee errors https://goo.gl/w9aoZT            ##
 ##################################################################################
 ##     All credit for the items installed/downloaded go to original authors     ##
@@ -27,74 +27,94 @@ sleep .3
 echo "
 Report all bugs here: https://github.com/Beags/ServerSetup/issues
 "
+echo "
+You will need to run the option Basics before anything else for it to work!
+"
 sleep 1
-PS3='Choose your linux distro: '
-options=("Debian" "Ubuntu" "Centos" )
+echo "
+If you would like to support me check out my paypal link on the plugin page.
+"
+sleep 2
+echo "
+If you are having a problem updating the jars, run the Jars option then try again!
+"
+PS3='What would you like to install? '
+options=("Spigot" "Bungee" "Waterfall" "Lilypad" "Vinilla" "Paperspigot" "Basics" "Forge" "Cauldron" "Sponge" "Jars" "Web" )
 select opt in "${options[@]}"
 do
     case $opt in
-        "Debian")
-            apt-get update
-            apt-get install wget
-            apt-get install mysql-server
-            /etc/init.d/apache2 restart
-            cd /etc/apt/sources.list.d/
-            wget https://buzzzy.co/Hub/serversetup/Debian/java-8-debian.list
-            apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
-            apt-get update
-            apt-get install oracle-java8-installer
-            apt-get update
-            apt-get install screen
-            apt-get install git
-            apt-get install apache2
-            apt-get install php5-common libapache2-mod-php5 php5-cli
-            service apache2 restart
-            echo "Basics installed, you can go back to the main script and install the server now!"
-            exit
+        "Spigot")
+            cd ~
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/spigot.sh
+            chmod 770 ./spigot.sh
+            ./spigot.sh
             ;;
-         "Ubuntu")
-            apt-get update
-            apt-get install wget
-            apt-get install apache2
-            apt-get install mysql-server
-            apt-get install php5 libapache2-mod-php5
-            /etc/init.d/apache2 restart
-            cd /etc/apt/sources.list.d/
-            wget https://buzzzy.co/Hub/serversetup/Debian/java-8-debian.list
-            apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
-            apt-get update
-            apt-get install oracle-java8-installer
-            apt-get update
-            apt-get install screen
-            apt-get install git
-            echo "Basics installed, you can go back to the main script and install the server now!"
-            exit
+         "Bungee")
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/Bungee.sh
+            chmod 770 ./Bungee.sh
+            ./Bungee.sh
             ;;
-         "Centos")
-            yum update
-            yum install wget
-            yum install httpd
-            systemctl start httpd.service
-            systemctl enable httpd.service
-            yum install mariadb-server mariadb
-            systemctl start mariadb
-            systemctl enable mariadb.service
-            mysql_secure_installation
-            yum install php php-mysql
-            yum -y install php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-snmp php-soap curl curl-devel
-            systemctl restart httpd.service
-            cd /opt/
-            wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz"
-            tar xzf jdk-8u111-linux-x64.tar.gz
-            cd /opt/jdk1.8.0_111/
-            alternatives --install /usr/bin/java java /opt/jdk1.8.0_111/bin/java 2
-            alternatives --config java
-            alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_111/bin/jar 2
-            alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_111/bin/javac 2
-            alternatives --set jar /opt/jdk1.8.0_111/bin/jar
-            alternatives --set javac /opt/jdk1.8.0_111/bin/javac
-            echo "Basics installed, you can go back to the main script and install the server now!"
-            exit
+         "Waterfall")
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/Waterfall.sh
+            chmod 770 ./Waterfall.sh
+            ./Waterfall.sh
+            ;;
+        "Lilypad")
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/Lilypad.sh
+            chmod 770 ./Lilypad.sh
+            ./Lilypad.sh
+            ;;
+        "Vanilla")
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/Vanilla.sh
+            chmod 770 ./Vanilla.sh
+            ./Vanilla.sh
+            ;;
+        "Paperspigot")
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/Paperspigot.sh
+            chmod 770 ./Paperspigot.sh
+            ./Paperspigot.sh
+            ;;
+        "Basics")
+            wget https://buzzzy.co/Hub/ServerSetup/Global/basics.sh
+            chmod 770 ./basics.sh
+            ./basics.sh
+            ;;
+        "Forge")
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/Forge.sh
+            chmod 770 ./Forge.sh
+            ./Forge.sh
+            ;;
+        "Cauldron")
+            echo "
+            Please note that cauldron is no longer supported nor updated
+            "
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/Cauldron.sh
+            chmod 770 ./Cauldron.sh
+            ./Cauldron.sh
+            ;;
+        "Sponge")
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/Sponge.sh
+            chmod 770 ./Sponge.sh
+            ./Sponge.sh
+            ;;
+        "Jars")
+            echo "
+            Fixing jars
+            " 
+            cd ~
+            rm -rf Jars
+            echo "
+            Should be fixed!
+            "
+            ;;
+        "Web")
+            echo "
+            THIS IS IN BETA, PLEASE REPORT ANY ISSUES ON THE GITHUB!
+            "
+            sleep 1
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/web,sh
+            chmod 770 ./web.sh
+            ./web.sh
             ;;
         *) echo invalid option;;
     esac

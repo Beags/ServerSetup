@@ -1,11 +1,39 @@
+##################################################################################
 ##                    SERVER SETUP SCRIPT BY BUZZY                              ##
-##                 Report config error https://buzzzy.co                        ##
-##                 Report Spigot errors https://goo.gl/w9aoZT                   ##
+##                 Report errors: https://github.com/Beags/ServerSetup/issues   ##
+##                 Report Spigot/Bungee errors https://goo.gl/w9aoZT            ##
 ##################################################################################
-##           All credit for the plugins downloaded go to their authors          ##
+##     All credit for the items installed/downloaded go to original authors     ##
 ##################################################################################
-echo "Installing wordpress"
-echo "What should the wordpress database password be?"
+#!/bin/sh
+echo "
+   ▄████████    ▄████████    ▄████████  ▄█    █▄     ▄████████    ▄████████         ▄████████    ▄████████ ███    █▄      ███        ▄███████▄ 
+  ███    ███   ███    ███   ███    ███ ███    ███   ███    ███   ███    ███        ███    ███   ███    ███ ███    ███ ▀█████████▄   ███    ███ 
+  ███    █▀    ███    █▀    ███    ███ ███    ███   ███    █▀    ███    ███        ███    █▀    ███    █▀  ███    ███    ▀███▀▀██   ███    ███ 
+  ███         ▄███▄▄▄      ▄███▄▄▄▄██▀ ███    ███  ▄███▄▄▄      ▄███▄▄▄▄██▀        ███         ▄███▄▄▄     ███    ███     ███   ▀   ███    ███ 
+▀███████████ ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ███    ███ ▀▀███▀▀▀     ▀▀███▀▀▀▀▀        ▀███████████ ▀▀███▀▀▀     ███    ███     ███     ▀█████████▀  
+         ███   ███    █▄  ▀███████████ ███    ███   ███    █▄  ▀███████████               ███   ███    █▄  ███    ███     ███       ███        
+   ▄█    ███   ███    ███   ███    ███ ███    ███   ███    ███   ███    ███         ▄█    ███   ███    ███ ███    ███     ███       ███        
+ ▄████████▀    ██████████   ███    ███  ▀██████▀    ██████████   ███    ███       ▄████████▀    ██████████ ████████▀     ▄████▀    ▄████▀      
+                            ███    ███                           ███    ███                                                                    
+
+Version: 5.2
+"
+sleep 2
+echo "
+Written by Buzzy
+"
+sleep .3
+echo "
+Report all bugs here: https://github.com/Beags/ServerSetup/issues
+"
+sleep 1
+echo "
+Installing wordpress
+"
+echo "
+What should the wordpress database password be?
+"
 read -r Passwordvar
 mysql -u root -p -e 'create database wordpress;'
 mysql -u root -p -e 'create user wordpress;'
@@ -15,21 +43,37 @@ cd /var/www/html
 wget https://wordpress.org/latest.zip
 unzip latest.zip
 mv wordpress/* .
-echo "What should your first unqiue secret key be?"
+echo "
+What should your first unqiue secret key be?
+"
 read -r Firstsecretvar
-echo "What should your second unqiue secret key be?"
+echo "
+What should your second unqiue secret key be?
+"
 read -r Secondsecretvar
-echo "What should your third unqiue secret key be?"
+echo "
+What should your third unqiue secret key be?
+"
 read -r thirdsecretvar
-echo "What should your fourth unqiue secret key be?"
+echo "
+What should your fourth unqiue secret key be?
+"
 read -r Fourthsecretvar
-echo "What should your fifth unqiue secret key be?"
+echo "
+What should your fifth unqiue secret key be?
+"
 read -r Fifthsecretvar
-echo "What should your sixth unqiue secret key be?"
+echo "
+What should your sixth unqiue secret key be?
+"
 read -r Sixthsecretvar
-echo "What should your Seventh unqiue secret key be?"
+echo "
+What should your Seventh unqiue secret key be?
+"
 read -r Seventhsecretvar
-echo "What should your eighth unqiue secret key be?"
+echo "
+What should your eighth unqiue secret key be?
+"
 read -r Eighthecretvar
 cat > wp-config.php << END_TEXT
 <?php
@@ -123,4 +167,5 @@ if ( !defined('ABSPATH') )
 require_once(ABSPATH . 'wp-settings.php');
 
 END_TEXT
-echo "Main install done navagate your browser to: http://yourip/ "
+echo "
+Main install done navagate your browser to: http://yourip/ "

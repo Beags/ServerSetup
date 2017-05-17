@@ -28,73 +28,59 @@ echo "
 Report all bugs here: https://github.com/Beags/ServerSetup/issues
 "
 sleep 1
+echo "
+Flaurm installer
+"
+sleep .2
+echo "You must have run basics before installing this!"
 PS3='Choose your linux distro: '
 options=("Debian" "Ubuntu" "Centos" )
 select opt in "${options[@]}"
 do
     case $opt in
         "Debian")
-            apt-get update
-            apt-get install wget
-            apt-get install mysql-server
-            /etc/init.d/apache2 restart
-            cd /etc/apt/sources.list.d/
-            wget https://buzzzy.co/Hub/serversetup/Debian/java-8-debian.list
-            apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
-            apt-get update
-            apt-get install oracle-java8-installer
-            apt-get update
-            apt-get install screen
-            apt-get install git
-            apt-get install apache2
-            apt-get install php5-common libapache2-mod-php5 php5-cli
-            service apache2 restart
-            echo "Basics installed, you can go back to the main script and install the server now!"
-            exit
+            apt-get install curl php5-cli git
+            php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');"
+            php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === 'sha_384_string') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('/tmp/composer-setup.php'); } echo PHP_EOL;"
+            php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+            rm -rf /tmp/composer-setup.php
+            cd /var/www/html
+            composer create-project flarum/flarum . --stability=beta
+            echo "
+            Flarum should be installed!
+            "
+            echo "
+            Please report any bugs!
+            "
+            sleep .3
             ;;
          "Ubuntu")
-            apt-get update
-            apt-get install wget
-            apt-get install apache2
-            apt-get install mysql-server
-            apt-get install php5 libapache2-mod-php5
-            /etc/init.d/apache2 restart
-            cd /etc/apt/sources.list.d/
-            wget https://buzzzy.co/Hub/serversetup/Debian/java-8-debian.list
-            apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
-            apt-get update
-            apt-get install oracle-java8-installer
-            apt-get update
-            apt-get install screen
-            apt-get install git
-            echo "Basics installed, you can go back to the main script and install the server now!"
-            exit
+            apt-get install curl php5-cli git
+            php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');"
+            php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === 'sha_384_string') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('/tmp/composer-setup.php'); } echo PHP_EOL;"
+            php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+            rm -rf /tmp/composer-setup.php
+            cd /var/www/html
+            composer create-project flarum/flarum . --stability=beta
+            echo "
+            Flarum should be installed!
+            "
+            echo "
+            Please report any bugs!
+            "
             ;;
          "Centos")
-            yum update
-            yum install wget
-            yum install httpd
-            systemctl start httpd.service
-            systemctl enable httpd.service
-            yum install mariadb-server mariadb
-            systemctl start mariadb
-            systemctl enable mariadb.service
-            mysql_secure_installation
-            yum install php php-mysql
-            yum -y install php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-snmp php-soap curl curl-devel
-            systemctl restart httpd.service
-            cd /opt/
-            wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u111-b14/jdk-8u111-linux-x64.tar.gz"
-            tar xzf jdk-8u111-linux-x64.tar.gz
-            cd /opt/jdk1.8.0_111/
-            alternatives --install /usr/bin/java java /opt/jdk1.8.0_111/bin/java 2
-            alternatives --config java
-            alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_111/bin/jar 2
-            alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_111/bin/javac 2
-            alternatives --set jar /opt/jdk1.8.0_111/bin/jar
-            alternatives --set javac /opt/jdk1.8.0_111/bin/javac
-            echo "Basics installed, you can go back to the main script and install the server now!"
-            exit
+            curl -sS https://getcomposer.org/installer | php
+            mv composer.phar /usr/local/bin/composer
+            chmod +x /usr/local/bin/composer
+            cd /var/www/html
+            composer create-project flarum/flarum . --stability=beta
+            echo "
+            Flarum should be installed!
+            "
+            echo "
+            Please report any bugs!
+            "
             ;;
         *) echo invalid option;;
     esac

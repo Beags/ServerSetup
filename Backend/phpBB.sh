@@ -29,27 +29,24 @@ Report all bugs here: https://github.com/Beags/ServerSetup/issues
 "
 sleep 1
 echo "
-Lilypad Installer
+Installing phpBB
 "
 echo "
-YOU MUST HAVE BASICS INSTALLED OR ELSE THIS WILL NOT WORK!!!!
+What should the phpBB database password be?
 "
-echo "
-Please note this only is for 64bit based servers!
-"
-echo "
-Most servers are that, but if you are not sure contact your host!
-"
-sleep 1
-cd ~
-mkdir Proxy
-cd Proxy
-wget http://ci.lilypadmc.org/job/Go-Server-Proxy/lastSuccessfulBuild/artifact/target/proxy-linux-amd64
-cd ..
-mkdir Connect
-cd Connect
-wget http://ci.lilypadmc.org/job/Go-Server-Connect/lastSuccessfulBuild/artifact/target/connect-linux-amd64
-cd ..
-wget https://buzzzy.co/Hub/ServerSetup/Global/lilyscreen.sh
-chmod 770 lilyscreen.sh
-./lillyscreen.sh
+read -r Passwordvar
+mysql -u root -p -e 'create database phpBB;'
+mysql -u root -p -e 'create user phpBB;'
+mysql -u root -p -e 'GRANT ALL ON phpBB.* TO 'phpBB'@'localhost';'
+mysql -u root -p -e 'USE phpBB update * set password=PASSWORD('$Passwordvar') where User='phpBB';'
+cd /var/www/html
+wget https://www.phpbb.com/files/release/phpBB-3.2.0.zip
+unzip phpBB-3.2.0.zip
+mv phpBB3/* .
+chmod 777 store
+chmod 777 cache
+chmod 777 files
+chmod 777 images/avatars/upload/
+echo "Main install done navagate your browser to: http://yourip/phpBB3/install/app.php"
+echo "Your MYSQl Info: databasename: phpBB  user: phpBB password: $Passwordvar"
+sleep 2

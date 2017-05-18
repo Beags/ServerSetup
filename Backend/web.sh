@@ -17,7 +17,7 @@ echo "
  ▄████████▀    ██████████   ███    ███  ▀██████▀    ██████████   ███    ███       ▄████████▀    ██████████ ████████▀     ▄████▀    ▄████▀      
                             ███    ███                           ███    ███                                                                    
 
-Version: 5.2
+Version: 5.5
 "
 sleep 2
 echo "
@@ -39,7 +39,7 @@ You will be choose some websoftware to install, if you don't know what software 
 "
 sleep 1
 PS3='Choose your Web software: '
-options=("Wordpress" "MyBB" "NamelessMC" "Xenforo" "Flarum" )
+options=("Wordpress" "MyBB" "NamelessMC" "Xenforo" "Flarum" "phpBB" )
 select opt in "${options[@]}"
 do
     case $opt in
@@ -77,6 +77,10 @@ do
             wget https://buzzzy.co/Hub/ServerSetup/Scripts/Flarum.sh
             chmod 770 ./Flarum.sh
             ./Flarum.sh
+        "phpBB")
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/phpBB.sh
+            chmod 770 ./phpBB.sh
+            ./phpBB.sh
         *) echo invalid option;;
     esac
     done

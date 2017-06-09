@@ -17,7 +17,7 @@ echo "
  ▄████████▀    ██████████   ███    ███  ▀██████▀    ██████████   ███    ███       ▄████████▀    ██████████ ████████▀     ▄████▀    ▄████▀      
                             ███    ███                           ███    ███                                                                    
 
-Version: 5.5
+Version: 5.6
 "
 sleep 2
 echo "
@@ -36,7 +36,7 @@ YOU MUST HAVE BASICS INSTALLED OR ELSE THIS WILL NOT WORK!!!!
 "
 sleep 1
 PS3='What Version would you like to install? '
-options=("1.8.8" "Latest" "1.9.4" "1.10" "1.7.10/1.8" )
+options=("1.8.8" "Latest" "1.9.4" "1.10" "1.7.10/1.8" "Developer" )
 select opt in "${options[@]}"
 do
     case $opt in
@@ -57,7 +57,7 @@ do
             cd Jars
             wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
             java -jar BuildTools.jar --rev latest
-            mv spigot-1.11.2.jar server.jar
+            mv spigot-1.12.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
             chmod 770 screen.sh
             ./screen.sh
@@ -90,6 +90,35 @@ do
             cd Jars
             wget https://github.com/Sarabveer/CraftBukkit-Spigot-Binary/blob/master/spigot-1.7.10-1.8-R0.1/spigot-1.7.10-1.8-R0.1-1656.jar
             mv spigot-1.7.10-1.8-R0.1-1656.jar server.jar
+            wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
+            chmod 770 screen.sh
+            ./screen.sh
+            ;;
+          "Developer")
+            echo "
+            warning, this is a verison of spigot that is in development, and should not be used on a production server!
+            "
+            sleep .1
+            echo "
+            please note that this might not always work, please report this not working on the github.
+            "
+            cd ~
+            mkdir Jars
+            cd Jars
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+            java -jar BuildTools.jar --dev
+            mv spigot-1.12-pre6.jar server.jar
+            wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
+            chmod 770 screen.sh
+            ./screen.sh
+            ;;
+          "1.11.2")
+            cd ~
+            mkdir Jars
+            cd Jars
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+            java -jar BuildTools.jar --rev 1.11.2
+            mv spigot-1.11.2.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
             chmod 770 screen.sh
             ./screen.sh

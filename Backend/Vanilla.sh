@@ -36,7 +36,7 @@ YOU MUST HAVE BASICS INSTALLED OR ELSE THIS WILL NOT WORK!!!!
 "
 sleep 1
 PS3='What Version would you like to install? '
-options=("17w06a" "1.11.2" "1.9.4" "1.10.2" "1.8.9" )
+options=("17w06a" "1.11.2" "1.9.4" "1.10.2" "1.8.9" "1.12" )
 select opt in "${options[@]}"
 do
     case $opt in
@@ -80,6 +80,16 @@ do
             mkdir Jars
             cd Jars
             wget https://launcher.mojang.com/mc/game/1.8.9/server/b58b2ceb36e01bcd8dbf49c8fb66c55a9f0676cd/server.jar
+            wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
+            chmod 770 screen.sh
+            ./screen.sh
+            ;;
+         "1.12")
+            cd ~
+            mkdir Jars
+            cd Jars
+            wget https://s3.amazonaws.com/Minecraft.Download/versions/1.12/minecraft_server.1.12.jar
+            mv minecraft_server.1.12.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
             chmod 770 screen.sh
             ./screen.sh

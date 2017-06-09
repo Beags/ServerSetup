@@ -17,7 +17,7 @@ echo "
  ▄████████▀    ██████████   ███    ███  ▀██████▀    ██████████   ███    ███       ▄████████▀    ██████████ ████████▀     ▄████▀    ▄████▀      
                             ███    ███                           ███    ███                                                                    
 
-Version: 5.5
+Version: 5.6
 "
 sleep 2
 echo "
@@ -36,7 +36,7 @@ YOU MUST HAVE BASICS INSTALLED OR ELSE THIS WILL NOT WORK!!!!
 "
 sleep 1
 PS3='What Version would you like to install? '
-options=("Latest" "1.8.8" "1.9.4" "1.10.2" )
+options=("Latest" "1.8.8" "1.9.4" "1.10.2" "1.11.2" )
 select opt in "${options[@]}"
 do
     case $opt in
@@ -50,7 +50,7 @@ do
             chmod 770 screen.sh
             ./screen.sh
             ;;
-         "1.8.8")
+        "1.8.8")
             cd ~
             mkdir Jars
             cd Jars
@@ -60,7 +60,7 @@ do
             chmod 770 screen.sh
             ./screen.sh
             ;;
-         "1.9.4")
+        "1.9.4")
             cd ~
             mkdir Jars
             cd Jars
@@ -75,6 +75,16 @@ do
             mkdir Jars
             cd Jars
             wget https://ci.destroystokyo.com/job/PaperSpigot/916/artifact/paperclip.jar
+            mv paperclip.jar server.jar
+            wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
+            chmod 770 screen.sh
+            ./screen.sh
+            ;;
+        "1.11.2")
+            cd ~
+            mkdir Jars
+            cd Jars
+            wget https://ci.destroystokyo.com/job/PaperSpigot/1104/artifact/paperclip.jar
             mv paperclip.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
             chmod 770 screen.sh

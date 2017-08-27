@@ -23,11 +23,17 @@ If you would like your distro supported make an issue in the issues section
 * Forge
 *  Cauldron
 * Sponge
+* CraftBukkit
+* Torch
+* Hose
+* TacoSpigot
 
 > Proxies
 * Bungeecord
 * Waterfall
 * LilyPad
+* HexaCord
+* Travertine
 
 >  Websoftware
 * Wordpress

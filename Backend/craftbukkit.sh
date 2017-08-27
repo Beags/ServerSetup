@@ -17,7 +17,7 @@ echo "
  ▄████████▀    ██████████   ███    ███  ▀██████▀    ██████████   ███    ███       ▄████████▀    ██████████ ████████▀     ▄████▀    ▄████▀      
                             ███    ███                           ███    ███                                                                    
 
-Version: 5.5
+Version: 5.7
 "
 sleep 2
 echo "
@@ -29,31 +29,35 @@ Report all bugs here: https://github.com/Beags/ServerSetup/issues
 "
 sleep 1
 echo "
-Vanilla Installer
+CraftBukkit Installer
 "
 echo "
 YOU MUST HAVE BASICS INSTALLED OR ELSE THIS WILL NOT WORK!!!!
 "
 sleep 1
 PS3='What Version would you like to install? '
-options=("17w06a" "1.11.2" "1.9.4" "1.10.2" "1.8.9" "1.12" "1.12.1")
+options=("1.8.8" "Latest" "1.9.4" "1.10" "1.7.10/1.8" "Developer" "1.12" )
 select opt in "${options[@]}"
 do
     case $opt in
-        "17w06a")
+        "1.8.8")
             cd ~
             mkdir Jars
             cd Jars
-            wget https://launcher.mojang.com/mc/game/17w06a/server/37441cab126ee2a4f292c9bf488c9dd800cff841/server.jar
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+            java -jar BuildTools.jar --rev 1.8.8
+            mv craftbukkit-1.8.8.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
             chmod 770 screen.sh
             ./screen.sh
             ;;
-         "1.11.2")
+         "Latest")
             cd ~
             mkdir Jars
             cd Jars
-            wget https://launcher.mojang.com/mc/game/1.11.2/server/f00c294a1576e03fddcac777c3cf4c7d404c4ba4/server.jar
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+            java -jar BuildTools.jar --rev latest
+            mv craftbukkit-1.12.1.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
             chmod 770 screen.sh
             ./screen.sh
@@ -62,44 +66,70 @@ do
             cd ~
             mkdir Jars
             cd Jars
-            wget https://launcher.mojang.com/mc/game/1.9.4/server/edbb7b1758af33d365bf835eb9d13de005b1e274/server.jar
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+            java -jar BuildTools.jar --rev 1.9.4
+            mv craftbukkit-1.9.4.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
             chmod 770 screen.sh
             ./screen.sh
             ;;
-        "1.10.2")
+        "1.10")
             cd ~
             mkdir Jars
             cd Jars
-            wget https://launcher.mojang.com/mc/game/1.10.2/server/3d501b23df53c548254f5e3f66492d178a48db63/server.jar
-            wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
-            chmod 770 screen.sh
-            ./screen.sh
-        "1.8.9")
-            cd ~
-            mkdir Jars
-            cd Jars
-            wget https://launcher.mojang.com/mc/game/1.8.9/server/b58b2ceb36e01bcd8dbf49c8fb66c55a9f0676cd/server.jar
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+            java -jar BuildTools.jar --rev 1.10
+            mv craftbukkit-1.10.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
             chmod 770 screen.sh
             ./screen.sh
             ;;
-        "1.12")
+        "1.7/1.8")
             cd ~
             mkdir Jars
             cd Jars
-            wget https://s3.amazonaws.com/Minecraft.Download/versions/1.12/minecraft_server.1.12.jar
-            mv minecraft_server.1.12.jar server.jar
+            wget https://github.com/Sarabveer/CraftBukkit-craftbukkit-Binary/blob/master/craftbukkit-1.7.10-1.8-R0.1/craftbukkit-1.7.10-1.8-R0.1-1656.jar
+            mv craftbukkit-1.7.10-1.8-R0.1-1656.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
             chmod 770 screen.sh
             ./screen.sh
             ;;
-        "1.12.1")
+          "Developer")
+            echo "
+            warning, this is a verison of spigot that is in development, and should not be used on a production server!
+            "
+            sleep .1
+            echo "
+            please note that this might not always work, please report this not working on the github.
+            "
             cd ~
             mkdir Jars
             cd Jars
-            wget https://s3.amazonaws.com/Minecraft.Download/versions/1.12.1/minecraft_server.1.12.1.jar
-            mv minecraft_server.1.12.jar server.jar
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+            java -jar BuildTools.jar --dev
+            mv craftbukkit-1.12-pre6.jar server.jar
+            wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
+            chmod 770 screen.sh
+            ./screen.sh
+            ;;
+          "1.11.2")
+            cd ~
+            mkdir Jars
+            cd Jars
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+            java -jar BuildTools.jar --rev 1.11.2
+            mv craftbukkit-1.11.2.jar server.jar
+            wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
+            chmod 770 screen.sh
+            ./screen.sh
+            ;;
+          "1.12")
+            cd ~
+            mkdir Jars
+            cd Jars
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+            java -jar BuildTools.jar --rev 1.12
+            mv craftbukkit-1.12.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
             chmod 770 screen.sh
             ./screen.sh

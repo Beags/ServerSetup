@@ -36,7 +36,7 @@ YOU MUST HAVE BASICS INSTALLED OR ELSE THIS WILL NOT WORK!!!!
 "
 sleep 1
 PS3='What Version would you like to install? '
-options=("1.8.8" "Latest" "1.9.4" "1.10" "1.7.10/1.8" "Developer" )
+options=("1.8.8" "Latest" "1.9.4" "1.10" "1.7.10/1.8" "Developer" "1.12" )
 select opt in "${options[@]}"
 do
     case $opt in
@@ -57,7 +57,7 @@ do
             cd Jars
             wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
             java -jar BuildTools.jar --rev latest
-            mv spigot-1.12.jar server.jar
+            mv spigot-1.12.1.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
             chmod 770 screen.sh
             ./screen.sh
@@ -119,6 +119,17 @@ do
             wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
             java -jar BuildTools.jar --rev 1.11.2
             mv spigot-1.11.2.jar server.jar
+            wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
+            chmod 770 screen.sh
+            ./screen.sh
+            ;;
+          "1.12")
+            cd ~
+            mkdir Jars
+            cd Jars
+            wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+            java -jar BuildTools.jar --rev 1.12
+            mv spigot-1.12.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
             chmod 770 screen.sh
             ./screen.sh

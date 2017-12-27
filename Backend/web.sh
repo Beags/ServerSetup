@@ -77,6 +77,7 @@ do
             wget https://buzzzy.co/Hub/ServerSetup/Scripts/Flarum.sh
             chmod 770 ./Flarum.sh
             ./Flarum.sh
+            ;;
         "phpBB")
             wget https://buzzzy.co/Hub/ServerSetup/Scripts/phpBB.sh
             chmod 770 ./phpBB.sh

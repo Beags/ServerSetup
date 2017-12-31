@@ -72,9 +72,9 @@ do
             ./Vanilla.sh
             ;;
         "Paperspigot")
-            wget https://buzzzy.co/Hub/ServerSetup/Scripts/Paperspigot.sh
-            chmod 770 ./Paperspigot.sh
-            ./Paperspigot.sh
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/PaperSpigot.sh
+            chmod 770 ./PaperSpigot.sh
+            ./PaperSpigot.sh
             ;;
         "Basics")
             wget https://buzzzy.co/Hub/ServerSetup/Global/basics.sh
@@ -114,7 +114,7 @@ do
             THIS IS IN BETA, PLEASE REPORT ANY ISSUES ON THE GITHUB!
             "
             sleep 1
-            wget https://buzzzy.co/Hub/ServerSetup/Scripts/web,sh
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/web.sh
             chmod 770 ./web.sh
             ./web.sh
             ;;

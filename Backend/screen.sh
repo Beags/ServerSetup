@@ -37,7 +37,7 @@ do
             cd ~
             mkdir MyServer
             cd MyServer
-            wget https://buzzzy.co/ServerSetup/Global/restart.sh
+            wget https://buzzzy.co/Hub/ServerSetup/Global/restart.sh
             cp -R ~/Jars/server.jar ~/MyServer/
             wget https://buzzzy.co/Hub/serversetup/startscripts/start.sh
             wget https://buzzzy.co/Hub/serversetup/files/eula.txt

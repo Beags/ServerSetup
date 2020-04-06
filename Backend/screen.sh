@@ -39,8 +39,8 @@ do
             cd MyServer
             wget https://buzzzy.co/Hub/ServerSetup/Global/restart.sh
             cp -R ~/Jars/server.jar ~/MyServer/
-            wget https://buzzzy.co/Hub/serversetup/startscripts/start.sh
-            wget https://buzzzy.co/Hub/serversetup/files/eula.txt
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/start.sh
+            wget https://buzzzy.co/Hub/ServerSetup/files/eula.txt
             chmod 770 ./start.sh
             screen -dmS myserver sh
             screen -S myserver -X stuff "./start.sh
@@ -62,8 +62,8 @@ do
             cd MyServer
             wget https://buzzzy.co/ServerSetup/Global/restart.sh
             cp -R ~/Jars/server.jar ~/MyServer/
-            wget https://buzzzy.co/Hub/serversetup/startscripts/start.sh
-            wget https://buzzzy.co/Hub/serversetup/files/eula.txt
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/start.sh
+            wget https://buzzzy.co/Hub/ServerSetup/files/eula.txt
             chmod 770 ./start.sh
             screen -d -m -t myserver sh start.sh
             echo "
@@ -83,8 +83,8 @@ do
             cd MyServer
             wget https://buzzzy.co/ServerSetup/Global/restart.sh
             cp -R ~/Jars/server.jar ~/MyServer/
-            wget https://buzzzy.co/Hub/serversetup/startscripts/start.sh
-            wget https://buzzzy.co/Hub/serversetup/files/eula.txt
+            wget https://buzzzy.co/Hub/ServerSetup/Scripts/start.sh
+            wget https://buzzzy.co/Hub/ServerSetup/files/eula.txt
             chmod 770 ./start.sh
             screen -dmS myserver sh
             screen -S myserver -X stuff "./start.sh
@@ -92,7 +92,7 @@ do
             echo "
             Your server is now running, to access console do screen -x myserver , the files are located ~/MyServer/, if you ever need to restart it, go into server folder and run script restart.sh!
             "
-            echo "
+            echo "https://buzzzy.co/Hub/serversetup/startscripts/start.sh
             If you liked this resource please leave a review on spigot!
             "
             echo "

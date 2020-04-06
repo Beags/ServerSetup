@@ -17,7 +17,7 @@ echo "
  ▄████████▀    ██████████   ███    ███  ▀██████▀    ██████████   ███    ███       ▄████████▀    ██████████ ████████▀     ▄████▀    ▄████▀      
                             ███    ███                           ███    ███                                                                    
 
-Version: 5.6
+Version: 6.0
 "
 sleep 2
 echo "
@@ -36,7 +36,7 @@ YOU MUST HAVE BASICS INSTALLED OR ELSE THIS WILL NOT WORK!!!!
 "
 sleep 1
 PS3='What Version would you like to install? '
-options=("Latest" "1.8.8" "1.9.4" "1.10.2" "1.11.2" )
+options=("Latest" "1.8.8" "1.9.4" "1.10.2" "1.11.2" "1.13.2" "1.14.4" "1.15.2" )
 select opt in "${options[@]}"
 do
     case $opt in
@@ -85,6 +85,36 @@ do
             mkdir Jars
             cd Jars
             wget https://ci.destroystokyo.com/job/PaperSpigot/1104/artifact/paperclip.jar
+            mv paperclip.jar server.jar
+            wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
+            chmod 770 screen.sh
+            ./screen.sh
+            ;;
+        "1.13.2")
+            cd ~
+            mkdir Jars
+            cd Jars
+            wget https://papermc.io/ci/job/Paper-1.13/lastSuccessfulBuild/artifact/paperclip.jar
+            mv paperclip.jar server.jar
+            wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
+            chmod 770 screen.sh
+            ./screen.sh
+            ;;
+        "1.14.4")
+            cd ~
+            mkdir Jars
+            cd Jars
+            wget https://papermc.io/ci/job/Paper-1.14/lastSuccessfulBuild/artifact/paperclip.jar
+            mv paperclip.jar server.jar
+            wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
+            chmod 770 screen.sh
+            ./screen.sh
+            ;;
+        "1.15.2")
+            cd ~
+            mkdir Jars
+            cd Jars
+            wget https://papermc.io/ci/job/Paper-1.15/lastSuccessfulBuild/artifact/paperclip.jar
             mv paperclip.jar server.jar
             wget https://buzzzy.co/Hub/ServerSetup/Global/screen.sh
             chmod 770 screen.sh
